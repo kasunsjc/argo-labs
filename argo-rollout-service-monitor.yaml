@@ -1,0 +1,31 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  annotations:
+    meta.helm.sh/release-name: argocd
+    meta.helm.sh/release-namespace: argo-cd
+  creationTimestamp: "2024-06-22T22:24:07Z"
+  generation: 1
+  labels:
+    app.kubernetes.io/component: rollouts-controller
+    app.kubernetes.io/name: argo-rollouts
+    app.kubernetes.io/part-of: argo-rollouts
+  name: argo-rollouts
+  namespace: argo-rollouts
+spec:
+  endpoints:
+  - interval: 30s
+    path: /metrics
+    port: http-metrics
+  namespaceSelector:
+    matchNames:
+    - argo-rollouts
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: rollouts-controller
+      app.kubernetes.io/name: argo-rollouts
+      app.kubernetes.io/part-of: argo-rollouts
+
+
+
+
