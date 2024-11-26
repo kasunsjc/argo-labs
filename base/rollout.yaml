@@ -12,7 +12,7 @@ spec:
       app: vote
   strategy:
     blueGreen: 
-      autoPromotionEnabled: true
+      autoPromotionEnabled: false
       autoPromotionSeconds: 30
       activeService: vote
       previewService: vote-preview
